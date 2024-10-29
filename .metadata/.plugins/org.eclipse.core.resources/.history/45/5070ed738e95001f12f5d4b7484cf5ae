@@ -1,0 +1,240 @@
+package org.listaalgoritmos.template;
+
+import java.util.Iterator;
+
+public class RespostaListaExercicio {
+	
+	/*
+	 * Utilize apenas o método main para testar a implementação dos métodos. 
+	 * Não se faz necessário implementar dentro do escopo do método.
+	 */
+	public static void main(String[] args) {
+		
+	}
+	
+	/**
+	 * Método deve calcular o IMC utilizando peso e altura. Como resultado
+	 * o método deve retornar uma variável resultado do tipo float.
+	 * @param peso
+	 * @param altura
+	 * @return resultado
+	 */
+	public static float calcularImc(float peso, float altura) 
+	{
+		float resultado = peso / (float)Math.pow(altura, 2);
+		return resultado;
+	}
+	
+	/**
+	 * Método deve calcular a área do trapézio independente da unidade de medida.
+	 * Como resultado, o método deve retornar a área calculada.
+	 * @param baseMaior
+	 * @param baseMenor
+	 * @param altura
+	 * @return areaTrapezio
+	 */
+	public static float calcularAreaTrapezio(float baseMaior, float baseMenor, float altura) 
+	{	
+		float areaTrapezio = ((baseMaior + baseMenor) * altura) / 2; 
+		return areaTrapezio;
+	}
+	
+	/**
+	 * O método deve calcular o maior entre dois inteiros, que são fornecidos
+	 * como argumento do método. O retorno deve ser o maior valor dado
+	 * como entrada, sendo do tipo inteiro.
+	 * @param a
+	 * @param b
+	 * @return maiorValor
+	 */
+	public static int maiorEntreDoisInteiros(int a, int b) 
+	{
+		if (a > b) {
+			System.out.printf(" %d é maior que %d.", a, b);
+		}
+		return a;
+	}
+	
+	/**
+	 * Método verifica se o número apresentado como argumento é ímpar ou par.
+	 * caso seja par, o retorno do método deve ser verdadeiro. Caso contrário,
+	 * o valor retornado deve ser falso.
+	 * @param numero
+	 * @return condicao
+	 */
+	public static boolean verificarParImpar(int numero) 
+	{
+		if ((numero % 2) == 0) {
+			System.out.printf(" %d é par!", numero);
+			return true;
+		} else {
+			System.out.printf(" %d é par!", numero);
+			return false;
+		}
+	}
+	
+	/**
+	 * Método calcula a média aritmetica dos elementos float a partir de um array. 
+	 * O retorno deve ser o resultado do cálculo da média.
+	 * @param notas
+	 * @return media
+	 */
+	public static float calcularMediaNotas(float[] notas) {
+		
+		float somatorioNotas = 0.0f;
+		int contador = 0;
+		
+		while (contador < notas.length) {
+			somatorioNotas += notas[contador];
+			contador += 1;
+		}	
+		
+		float media = somatorioNotas / notas.length;
+		
+		return media;
+	}
+		
+	
+	
+	/**
+	 * Método imprime array de inteiros no sentido inverso, separando os elementos por vírgula.
+	 * O último elemento impresso não deve preceder vírgula. Use o System.out.print() para imprimir os valores.
+	 * Os elementos devem ser impresso numa única linha.
+	 * @param array
+	 */
+	public static void imprimirArrayInverso(int[] array)
+	{
+		for (int contador = 0; contador < array.length; contador++) {
+			System.out.print(array[contador] + ", ");
+		}
+		System.out.print(array[0]);
+	}
+	
+	/**
+	 * Método deve imprimir os elementos primos de um array de inteiros. O formato da impressão 
+	 * deve ser feito numa única linha, utilizando espaço em branco (" ") entre os elementos e 
+	 * após o último elemento. Utilize System.out.print()
+	 * @param array
+	 */
+	public static void imprimirElementosPrimos(int[] array) 
+	{
+		int inicializador = 0;
+		
+		while (inicializador < array.length) {
+			int numero = array[inicializador];
+			
+			if (numero > 1) {
+				boolean primo = true;
+				int contador = 2;
+				
+				while (contador < Math.sqrt(numero)) {
+					if ((numero % contador) == 0) {
+						primo = false;
+					}
+					
+					contador += 1;
+				}
+				
+				if (primo) {					
+					System.out.print(numero + "");
+				}
+			}
+			
+			inicializador += 1;
+		}
+	}
+	
+	
+	/**
+	 * Método deve imprimir os elementos ímpares de um array de inteiros. O formato da impressão 
+	 * deve ser feito numa única linha, utilizando espaço em branco (" ") entre os elementos e 
+	 * após o último elemento. Utilize System.out.print()
+	 * @param array
+	 */
+	public static void imprimirElementosImpares(int[] array) 
+	{
+		int contador = 0;
+		
+		while (contador < array.length) {
+			int numero = array.length;
+			
+			if ((numero % 2) != 0) {				
+				System.out.print(numero + "");
+			}
+		}
+		contador += 1;
+	}
+	
+	
+	/**
+	 * Método deve imprimir os elementos pares de um array de inteiros. O formato da impressão 
+	 * deve ser feito numa única linha, utilizando espaço em branco (" ") entre os elementos e 
+	 * após o último elemento. Utilize System.out.print()
+	 * @param array
+	 */
+	public static void imprimirElementosPares(int[] array) 
+	{
+		int contador = 0;
+		
+		while (contador < array.length) {
+			int numero = array.length;
+			
+			if ((numero % 2) == 0) {				
+				System.out.print(numero + "");
+			}
+		}
+		
+		contador += 1;
+	}
+	
+	
+	/**
+	 * Método deve imprimir o maior e o menor elemento de um array de inteiros. O formato da impressão 
+	 * deve ser feito numa única linha, utilizando espaço em branco (" ") entre os elementos e 
+	 * após o último elemento. Utilize System.out.print()
+	 * @param array
+	 */
+	public static void imprimirMaiorMenorElemento(int[] array) 
+	{
+		int menor = array[0];
+		int maior = array[0];
+		int contador = 1;
+		
+		while (contador < array.length) {
+			if (array[contador] > maior) {
+				maior = array[contador];
+			} 
+			
+			if (array[contador] < maior) {
+				menor = array[contador];
+			}
+		}
+		
+		System.out.print(menor + " " + maior + " ");
+	}
+	
+	/**
+	 * O método calcula a média aritmética dos elementos de um array de inteiros. 
+	 * Como resultado, o valor da média deve ser retornado no método.
+	 * @param array
+	 * @return media
+	 */
+	public static float calcularMediaAritmetica(int[] array) 
+	{
+		if (array.length == 0) {
+			return 0f;
+		}
+		
+		int somadorDeNotas = 0;
+		int contador = 0;
+		
+		while (contador < array.length) {
+			somadorDeNotas += array[contador];
+			contador += 1;
+		}
+		
+		float media = somadorDeNotas / array.length;
+		return media;
+	}
+	
+}
